@@ -34,6 +34,18 @@ export function TopNav() {
           >
             Projects
           </NavLink>
+          <NavLink
+            to="/reservoirs"
+            className={({ isActive }) =>
+              `px-2 py-1 rounded ${
+                isActive
+                  ? "bg-slate-900 text-white"
+                  : "text-slate-700 hover:bg-slate-100"
+              }`
+            }
+          >
+            Reservoirs
+          </NavLink>
         </nav>
       </div>
     </header>

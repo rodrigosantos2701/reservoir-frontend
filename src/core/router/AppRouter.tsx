@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ProjectsPage } from "../../modules/projects";
+import { ReservoirsPage } from "../../modules/reservoirs";
 import { TopNav } from "../layout/TopNav";
 import { DashboardPage } from "../../modules/dashboard/pages/DashboardPage";
 
@@ -13,6 +14,7 @@ export function AppRouter() {
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/reservoirs" element={<ReservoirsPage />} />
           </Routes>
         </main>
       </div>
