@@ -5,11 +5,7 @@ type Props = {
   isLoading?: boolean;
 };
 
-export function ProjectsTable({ projects, isLoading }: Props) {
-  if (isLoading) {
-    return <p className="text-sm text-slate-500">Carregando projetos...</p>;
-  }
-
+export function ProjectsTable({ projects }: Props) {
   if (!projects.length) {
     return <p className="text-sm text-slate-500">Nenhum projeto cadastrado.</p>;
   }
