@@ -1,9 +1,10 @@
-import type {
-  ProjectDTO,
-  ProjectApiResponseSchema,
-} from "../types/project.types";
+import type { ProjectDTO } from "../types/project.types";
+import type { z } from "zod";
+import { ProjectApiSchema } from "./project.schema";
 
-export function mapProjectFromApi(api: ProjectApiResponseSchema): ProjectDTO {
+export type ProjectApi = z.infer<typeof ProjectApiSchema>;
+
+export function mapProjectFromApi(api: ProjectApi): ProjectDTO {
   return {
     id: api.id,
     projectId: api.project_id,
@@ -13,8 +14,6 @@ export function mapProjectFromApi(api: ProjectApiResponseSchema): ProjectDTO {
   };
 }
 
-export function mapProjectsFromApi(
-  list: ProjectApiResponseSchema[]
-): ProjectDTO[] {
+export function mapProjectsFromApi(list: ProjectApi[]): ProjectDTO[] {
   return list.map(mapProjectFromApi);
 }
