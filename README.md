@@ -1,74 +1,56 @@
-# React + TypeScript + Vite
+# Reservoir-frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Frontend em React para gestão de projetos, reservatórios e poços.
 
-Currently, two official plugins are available:
+## Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** + **TypeScript**
+- **Vite** (bundler / dev server)
+- **React Router DOM** (roteamento)
+- **@tanstack/react-query** (data fetching e cache)
+- **React Hook Form** (formulários)
+- **Tailwind CSS** (estilização utilitária)
+- **ESLint** + **TypeScript ESLint** (linting)
 
-## React Compiler
+## Estrutura de pastas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```txt
+src/
+  api/                    # clients e helpers genéricos de API
+  core/
+    router/               # AppRouter, rotas principais, guards
+    layout/               # layouts globais (Shell, Navbar, Sidebar)
 
-## Expanding the ESLint configuration
+  modules/
+    projects/
+      api/                # chamadas de API específicas de projetos
+      types/              # tipos/DTOs de projetos
+      ui/                 # componentes de UI reutilizáveis (ProjectCard, etc.)
+      pages/              # páginas de roteamento (ProjectListPage, ...)
+      hooks/              # hooks (useProjects, useCreateProject, ...)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    reservoirs/
+      api/
+      types/
+      ui/
+      pages/
+      hooks/
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    wells/
+      api/
+      types/
+      ui/
+      pages/
+      hooks/
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+    dashboard/
+      pages/              # páginas de dashboard
+      hooks/              # hooks relacionados a dados do dashboard
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
-# reservoir-frontend
