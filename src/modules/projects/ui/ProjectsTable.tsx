@@ -1,7 +1,7 @@
-import type { Project } from "../types/project.types";
+import type { ProjectDTO } from "../types/project.types";
 
 type Props = {
-  projects: Project[];
+  projects: ProjectDTO[];
   isLoading?: boolean;
 };
 

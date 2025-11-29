@@ -23,11 +23,12 @@ src/
 
   modules/
     projects/
-      api/                # chamadas de API específicas de projetos
-      types/              # tipos/DTOs de projetos
-      ui/                 # componentes de UI reutilizáveis (ProjectCard, etc.)
-      pages/              # páginas de roteamento (ProjectListPage, ...)
-      hooks/              # hooks (useProjects, useCreateProject, ...)
+      api/                # chamadas HTTP específicas de projetos (infra de dados)
+      types/              # tipos/DTOs de domínio (Project, ProjectApi, etc.)
+      domain/             # regras de negócio e mapeamentos (ex.: project.mappers)
+      hooks/              # hooks de data (React Query) que usam api + domain
+      ui/                 # componentes de UI reutilizáveis (ProjectForm, ProjectsTable)
+      pages/              # páginas de roteamento (ProjectsPage)
 
     reservoirs/
       api/
