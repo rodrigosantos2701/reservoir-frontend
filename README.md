@@ -12,6 +12,7 @@
 - **Tailwind CSS** (estilização utilitária)
 - **ESLint** + **TypeScript ESLint** (linting)
 - **Zod** (validação e schemas)
+- **Vitest** + **React Testing Library** (testes unitários de componentes)
 
 ## Estrutura de pastas
 
@@ -101,8 +102,9 @@ src/
   - Padronizar skeletons de carregamento nas principais páginas (dashboard, projects, reservoirs, wells).
 
 - **Testes automatizados**
-  - Introduzir testes unitários para use-cases e domain mappers.
-  - Adicionar smoke tests de componentes principais (formulários e tabelas).
+  - Atualmente há apenas um teste unitário de exemplo para `ProjectsTable`, usando Vitest + React Testing Library.
+  - Aumentar a cobertura de testes unitários para use-cases, domain mappers e demais componentes críticos.
+  - Adicionar smoke tests para formulários e tabelas dos módulos de projects, reservoirs, wells e dashboard.
 
 ## Como rodar o projeto
 
@@ -134,3 +136,19 @@ npm run dev
 1. Acessar a aplicação no navegador (por padrão):
 
 - `http://localhost:5173`
+
+### Rodando os testes
+
+Este projeto usa **Vitest** com **React Testing Library** para testes unitários de componentes.
+
+Para executar a suíte de testes:
+
+```bash
+npm test
+```
+
+O comando roda o Vitest em modo padrão (watch). Para uma execução única, você pode usar:
+
+```bash
+npm test -- --run
+```
