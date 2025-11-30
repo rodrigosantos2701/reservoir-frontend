@@ -5,7 +5,10 @@ import { useCreateReservoir } from "../hooks/useReservoirs";
 
 const reservoirFormSchema = z.object({
   name_reservoir: z.string().min(1, "Reservoir name is required"),
-  project_id: z.string().min(1, "Project ID is required"),
+  project_id: z
+    .string()
+    .min(1, "Project ID is required")
+    .uuid("Project ID deve ser um UUID válido"),
 });
 
 type ReservoirFormValues = z.infer<typeof reservoirFormSchema>;
