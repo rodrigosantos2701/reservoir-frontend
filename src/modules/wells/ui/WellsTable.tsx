@@ -15,7 +15,7 @@ export function WellsTable({ wells, reservoirs, selectedReservoirId }: Props) {
   if (!filteredWells.length) {
     return (
       <p className="text-sm text-slate-500">
-        Nenhum poço encontrado para o filtro atual.
+        No wells found for the current filter.
       </p>
     );
   }
@@ -26,9 +26,9 @@ export function WellsTable({ wells, reservoirs, selectedReservoirId }: Props) {
         <thead className="bg-slate-100">
           <tr>
             <th className="px-4 py-2 text-left">ID</th>
-            <th className="px-4 py-2 text-left">Nome</th>
-            <th className="px-4 py-2 text-left">Reservatório</th>
-            <th className="px-4 py-2 text-left">Criado em</th>
+            <th className="px-4 py-2 text-left">Name</th>
+            <th className="px-4 py-2 text-left">Reservoir</th>
+            <th className="px-4 py-2 text-left">Created at</th>
           </tr>
         </thead>
         <tbody>

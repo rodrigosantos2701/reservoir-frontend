@@ -13,12 +13,12 @@ export function WellsPage() {
     error: reservoirsError,
   } = useReservoirs();
 
-  // Filtro da tabela (independente do formulário)
+  // Table filter (independent from the form)
   const [filterReservoirId, setFilterReservoirId] = useState<
     number | undefined
   >(undefined);
 
-  // Controle do select do formulário de vínculo
+  // Controls the reservoir select used by the link form
   const [formReservoirId, setFormReservoirId] = useState<number | undefined>(
     undefined
   );
@@ -29,22 +29,22 @@ export function WellsPage() {
     <div className="flex flex-1 flex-col gap-6">
       <header className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-semibold text-slate-900">Poços</h1>
+          <h1 className="text-xl font-semibold text-slate-900">Wells</h1>
           <p className="mt-1 text-sm text-slate-600">
-            Cadastro de poços associados a reservatórios e type well targets.
+            Wells linked to reservoirs and type well targets.
           </p>
         </div>
       </header>
 
       {error && (
         <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-          Erro ao carregar type well targets: {error.message}
+          Error loading type well targets: {error.message}
         </div>
       )}
 
       {reservoirsError && (
         <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-          Erro ao carregar reservatórios: {String(reservoirsError)}
+          Error loading reservoirs: {String(reservoirsError)}
         </div>
       )}
 
@@ -71,10 +71,10 @@ export function WellsPage() {
           <div className="flex items-center justify-between rounded-lg bg-white p-4 shadow">
             <div>
               <span className="text-sm font-medium text-slate-700">
-                Filtrar poços por reservatório
+                Filter wells by reservoir
               </span>
               <p className="text-xs text-slate-500">
-                Esse filtro afeta apenas a tabela abaixo.
+                This filter only affects the table below.
               </p>
             </div>
             <select
@@ -86,7 +86,7 @@ export function WellsPage() {
                 setFilterReservoirId(value === 0 ? undefined : value);
               }}
             >
-              <option value={0}>Todos os reservatórios</option>
+              <option value={0}>All reservoirs</option>
               {(reservoirs ?? []).map((r) => (
                 <option key={r.id} value={r.id}>
                   {r.name}

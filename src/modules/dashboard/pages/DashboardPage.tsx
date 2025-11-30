@@ -11,7 +11,7 @@ export function DashboardPage() {
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold text-slate-900">Dashboard</h1>
         <p className="text-sm text-slate-600">
-          Visão geral dos projetos, reservatórios e vínculos de poços.
+          Overview of projects, reservoirs and well links.
         </p>
       </header>
 

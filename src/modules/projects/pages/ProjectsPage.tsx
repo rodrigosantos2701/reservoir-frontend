@@ -8,17 +8,15 @@ export function ProjectsPage() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-xl font-semibold">Projetos</h1>
-        <p className="text-sm text-slate-500">
-          Cadastro e listagem de projetos.
-        </p>
+        <h1 className="text-xl font-semibold">Projects</h1>
+        <p className="text-sm text-slate-500">Projects creation and listing.</p>
       </header>
 
       <ProjectForm />
 
       {error && (
         <p className="text-sm text-red-600">
-          Erro ao carregar projetos: {(error as Error).message}
+          Error loading projects: {(error as Error).message}
         </p>
       )}
 

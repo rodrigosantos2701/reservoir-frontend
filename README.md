@@ -27,7 +27,8 @@ src/
       api/                # chamadas HTTP específicas de projetos (infra de dados)
       types/              # tipos/DTOs de domínio (Project, ProjectApi, etc.)
       domain/             # regras de negócio e mapeamentos (ex.: project.mappers)
-      hooks/              # hooks de data (React Query) que usam api + domain
+      use-cases/          # casos de uso de projetos (ex.: create/list projects)
+      hooks/              # hooks de data (React Query) que usam api + domain + use-cases
       ui/                 # componentes de UI reutilizáveis (ProjectForm, ProjectsTable)
       pages/              # páginas de roteamento (ProjectsPage)
 
@@ -35,7 +36,8 @@ src/
       api/                # chamadas HTTP específicas de reservatórios
       types/              # tipos/DTOs de domínio (Reservoir, ReservoirApi, etc.)
       domain/             # regras de negócio e mapeamentos (reservoir.mappers, schemas)
-      hooks/              # hooks de data (React Query) que usam api + domain
+      use-cases/          # casos de uso para criação e listagem de reservatórios
+      hooks/              # hooks de data (React Query) que usam api + domain + use-cases
       ui/                 # componentes de UI reutilizáveis (ReservoirForm, ReservoirsTable)
       pages/              # páginas de roteamento (ReservoirsPage)
 
@@ -44,6 +46,7 @@ src/
       types/              # tipos/DTOs para poços e vínculos
       ui/                 # componentes de UI (WellForm, WellsTable)
       pages/              # página principal de poços (WellsPage)
+      use-cases/          # casos de uso (ex.: linkWellToReservoir)
       hooks/              # hooks de estado em memória (useWells)
 
     dashboard/
@@ -75,7 +78,31 @@ src/
 
 ## Como rodar o projeto
 
+### Pré-requisitos
+
+- Node.js **>= 18 LTS** (recomendado usar `nvm`)
+- `npm` (ou `pnpm`/`yarn` se preferir adaptar os comandos)
+
+Para verificar sua versão do Node:
+
+```bash
+node -v
+```
+
+### Passos para executar em desenvolvimento
+
+1. Instalar dependências:
+
 ```bash
 npm install
+```
+
+1. Subir o servidor de desenvolvimento (Vite):
+
+```bash
 npm run dev
 ```
+
+1. Acessar a aplicação no navegador (por padrão):
+
+- `http://localhost:5173`

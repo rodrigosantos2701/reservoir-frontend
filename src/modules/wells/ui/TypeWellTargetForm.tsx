@@ -4,12 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useCreateTypeWellTarget } from "../hooks/useTypeWellTargets";
 
 const typeWellTargetFormSchema = z.object({
-  name: z.string().min(1, "Nome é obrigatório"),
+  name: z.string().min(1, "Name is required"),
   description: z.string().optional(),
   internal_code: z
     .number()
-    .int("Código interno deve ser inteiro")
-    .positive("Código interno deve ser positivo"),
+    .int("Internal code must be an integer")
+    .positive("Internal code must be positive"),
 });
 
 type TypeWellTargetFormValues = z.infer<typeof typeWellTargetFormSchema>;
@@ -48,7 +48,7 @@ export function TypeWellTargetForm() {
     >
       <div>
         <label className="block text-sm font-medium mb-1">
-          Nome do type well target *
+          Type well target name *
         </label>
         <input
           {...register("name")}
@@ -61,7 +61,7 @@ export function TypeWellTargetForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Código interno</label>
+        <label className="block text-sm font-medium mb-1">Internal code</label>
         <input
           type="number"
           {...register("internal_code", { valueAsNumber: true })}
@@ -75,7 +75,7 @@ export function TypeWellTargetForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Descrição</label>
+        <label className="block text-sm font-medium mb-1">Description</label>
         <input
           type="text"
           {...register("description")}
@@ -93,7 +93,7 @@ export function TypeWellTargetForm() {
         disabled={isPending}
         className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-white disabled:opacity-60"
       >
-        {isPending ? "Salvando..." : "Salvar type well target"}
+        {isPending ? "Saving..." : "Save type well target"}
       </button>
     </form>
   );

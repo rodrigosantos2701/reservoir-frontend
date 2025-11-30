@@ -44,13 +44,11 @@ export function ProjectForm() {
       className="space-y-4 bg-white p-4 rounded-lg shadow"
     >
       <div>
-        <label className="block text-sm font-medium mb-1">
-          Nome do projeto *
-        </label>
+        <label className="block text-sm font-medium mb-1">Project name *</label>
         <input
           {...register("name_project")}
           className="w-full border rounded px-3 py-2 text-sm"
-          placeholder="Projeto X"
+          placeholder="Project X"
         />
         {errors.name_project && (
           <p className="mt-1 text-xs text-red-600">
@@ -61,7 +59,7 @@ export function ProjectForm() {
 
       <div>
         <label className="block text-sm font-medium mb-1">
-          Tipo de estratégia CCUS (ID)
+          CCUS strategy type (ID) *
         </label>
         <input
           type="number"
@@ -77,7 +75,7 @@ export function ProjectForm() {
 
       {error && (
         <p className="text-sm text-red-600">
-          Erro ao salvar projeto: {(error as Error).message}
+          Error saving project: {(error as Error).message}
         </p>
       )}
 
@@ -86,7 +84,7 @@ export function ProjectForm() {
         disabled={isPending}
         className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded bg-slate-900 text-white disabled:opacity-60"
       >
-        {isPending ? "Salvando..." : "Salvar projeto"}
+        {isPending ? "Saving..." : "Save project"}
       </button>
     </form>
   );

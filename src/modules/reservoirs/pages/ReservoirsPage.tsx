@@ -8,17 +8,15 @@ export function ReservoirsPage() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-xl font-semibold">Reservatórios</h1>
-        <p className="text-sm text-slate-500">
-          Listagem de reservatórios por projeto.
-        </p>
+        <h1 className="text-xl font-semibold">Reservoirs</h1>
+        <p className="text-sm text-slate-500">Reservoirs listing by project.</p>
       </header>
 
       <ReservoirForm />
 
       {error && (
         <p className="text-sm text-red-600">
-          Erro ao carregar reservatórios: {(error as Error).message}
+          Error loading reservoirs: {(error as Error).message}
         </p>
       )}
 

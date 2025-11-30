@@ -5,13 +5,13 @@ import type { ReservoirDTO } from "../../reservoirs/types/reservoir.types";
 import type { TypeWellTargetDTO } from "../types/typeWellTarget.types";
 
 const wellFormSchema = z.object({
-  name: z.string().min(1, "Nome do poço é obrigatório"),
+  name: z.string().min(1, "Well name is required"),
   reservoirId: z
-    .number({ message: "Selecione um reservatório" })
+    .number({ message: "Select a reservoir" })
     .int()
-    .positive("Reservatório inválido"),
+    .positive("Invalid reservoir"),
   typeWellTargetId: z
-    .number({ message: "Selecione um type well target" })
+    .number({ message: "Select a type well target" })
     .int()
     .positive()
     .optional()
@@ -53,7 +53,7 @@ export function WellForm({
   });
 
   async function onSubmit(values: WellFormValues) {
-    // TO-DO: enviar vínculo de poço x reservatório para API
+    // TO-DO: send well x reservoir link to the API
     onLinkWellToReservoir({
       name: values.name,
       reservoirId: values.reservoirId,
@@ -74,15 +74,13 @@ export function WellForm({
     >
       <div className="grid gap-4 md:grid-cols-2">
         <div className="md:col-span-1">
-          <label className="mb-1 block text-sm font-medium">
-            Nome do poço *
-          </label>
+          <label className="mb-1 block text-sm font-medium">Well name *</label>
           <select
             {...register("name")}
             className="w-full rounded border px-3 py-2 text-sm"
             defaultValue=""
           >
-            <option value="">Selecione um nome</option>
+            <option value="">Select a name</option>
             {typeWellTargets.map((t) => (
               <option key={t.id} value={t.name}>
                 {t.name}
@@ -95,9 +93,7 @@ export function WellForm({
         </div>
 
         <div className="md:col-span-1">
-          <label className="mb-1 block text-sm font-medium">
-            Reservatório *
-          </label>
+          <label className="mb-1 block text-sm font-medium">Reservoir *</label>
           <select
             {...register("reservoirId", { valueAsNumber: true })}
             className="w-full rounded border px-3 py-2 text-sm"
@@ -107,7 +103,7 @@ export function WellForm({
             }}
             value={selectedReservoirId ?? 0}
           >
-            <option value={0}>Selecione um reservatório</option>
+            <option value={0}>Select a reservoir</option>
             {reservoirs.map((r) => (
               <option key={r.id} value={r.id}>
                 {r.name}
@@ -126,7 +122,7 @@ export function WellForm({
         type="submit"
         className="inline-flex items-center rounded bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
       >
-        Vincular poço ao reservatório
+        Link well to reservoir
       </button>
     </form>
   );

@@ -6,9 +6,7 @@ type Props = {
 
 export function ReservoirsTable({ reservoirs }: Props) {
   if (!reservoirs.length) {
-    return (
-      <p className="text-sm text-slate-500">Nenhum reservatório cadastrado.</p>
-    );
+    return <p className="text-sm text-slate-500">No reservoirs found.</p>;
   }
 
   return (
@@ -17,9 +15,9 @@ export function ReservoirsTable({ reservoirs }: Props) {
         <thead className="bg-slate-100">
           <tr>
             <th className="px-4 py-2 text-left">ID</th>
-            <th className="px-4 py-2 text-left">Nome</th>
+            <th className="px-4 py-2 text-left">Name</th>
             <th className="px-4 py-2 text-left">Project ID</th>
-            <th className="px-4 py-2 text-left">Criado em</th>
+            <th className="px-4 py-2 text-left">Created at</th>
           </tr>
         </thead>
         <tbody>

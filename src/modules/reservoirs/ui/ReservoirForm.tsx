@@ -8,7 +8,7 @@ const reservoirFormSchema = z.object({
   project_id: z
     .string()
     .min(1, "Project ID is required")
-    .uuid("Project ID deve ser um UUID válido"),
+    .uuid("Project ID must be a valid UUID"),
 });
 
 type ReservoirFormValues = z.infer<typeof reservoirFormSchema>;
@@ -42,12 +42,12 @@ export function ReservoirForm() {
     >
       <div>
         <label className="mb-1 block text-sm font-medium">
-          Nome do reservatório *
+          Reservoir name *
         </label>
         <input
           {...register("name_reservoir")}
           className="w-full rounded border px-3 py-2 text-sm"
-          placeholder="Reservatório A"
+          placeholder="Reservoir A"
         />
         {errors.name_reservoir && (
           <p className="mt-1 text-xs text-red-600">
@@ -61,7 +61,7 @@ export function ReservoirForm() {
         <input
           {...register("project_id")}
           className="w-full rounded border px-3 py-2 text-sm font-mono"
-          placeholder="UUID do projeto"
+          placeholder="Project UUID"
         />
         {errors.project_id && (
           <p className="mt-1 text-xs text-red-600">
@@ -72,7 +72,7 @@ export function ReservoirForm() {
 
       {error && (
         <p className="text-sm text-red-600">
-          Erro ao salvar reservatório: {(error as Error).message}
+          Error saving reservoir: {(error as Error).message}
         </p>
       )}
 
@@ -81,7 +81,7 @@ export function ReservoirForm() {
         disabled={isPending}
         className="inline-flex items-center rounded bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
       >
-        {isPending ? "Salvando..." : "Salvar reservatório"}
+        {isPending ? "Saving..." : "Save reservoir"}
       </button>
     </form>
   );
