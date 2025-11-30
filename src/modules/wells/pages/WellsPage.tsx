@@ -13,12 +13,10 @@ export function WellsPage() {
     error: reservoirsError,
   } = useReservoirs();
 
-  // Table filter (independent from the form)
   const [filterReservoirId, setFilterReservoirId] = useState<
     number | undefined
   >(undefined);
 
-  // Controls the reservoir select used by the link form
   const [formReservoirId, setFormReservoirId] = useState<number | undefined>(
     undefined
   );

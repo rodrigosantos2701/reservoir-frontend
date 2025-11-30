@@ -53,7 +53,7 @@ export function WellForm({
   });
 
   async function onSubmit(values: WellFormValues) {
-    // TO-DO: send well x reservoir link to the API
+    // TODO: currently handled only in local state; send well x reservoir payload to the API
     onLinkWellToReservoir({
       name: values.name,
       reservoirId: values.reservoirId,

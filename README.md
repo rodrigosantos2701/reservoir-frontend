@@ -76,6 +76,34 @@ src/
   - Dados combinando APIs reais (projetos, reservatórios) com os vínculos de poço em memória.
 ```
 
+## TODO / Próximos passos sugeridos
+
+- **Paginação de listas**
+  - Adicionar paginação em tabelas de projetos, reservatórios e poços (backend + frontend).
+
+- **Validação e UX de formulários**
+  - Refinar mensagens de erro e estados de `disabled`/`loading` em todos os formulários.
+  - Tratar casos de valores inválidos vindos da API com Zod (safeParse + fallback para UI amigável).
+
+- **Tratamento de erros de API**
+  - Centralizar handling de erros HTTP no cliente de API (`src/api/client.ts`).
+  - Exibir feedback consistente no layout (toasts, banners, etc.) para erros de rede/servidor.
+
+- **Integração real de poços**
+  - Substituir o estado em memória de poços (`useWells`) por chamadas reais de API.
+  - Enviar o payload de associação poço x reservatório a partir do `WellForm` para o backend.
+
+- **Melhorias de dashboard**
+  - Fazer o card de "Wells linked" e a tabela de "Reservoirs x Wells" consumirem dados reais da API.
+  - Adicionar filtros e períodos (por exemplo, últimos 7/30 dias) quando houver suporte no backend.
+
+- **Experiência de loading**
+  - Padronizar skeletons de carregamento nas principais páginas (dashboard, projects, reservoirs, wells).
+
+- **Testes automatizados**
+  - Introduzir testes unitários para use-cases e domain mappers.
+  - Adicionar smoke tests de componentes principais (formulários e tabelas).
+
 ## Como rodar o projeto
 
 ### Pré-requisitos
