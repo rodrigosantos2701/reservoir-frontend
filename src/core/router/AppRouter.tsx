@@ -5,6 +5,7 @@ import { WellsPage } from "../../modules/wells";
 import { TopNav } from "../layout/TopNav";
 import { DashboardPage } from "../../modules/dashboard/pages/DashboardPage";
 
+//test
 export function AppRouter() {
   return (
     <BrowserRouter>
